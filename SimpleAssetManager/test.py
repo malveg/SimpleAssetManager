@@ -1,4 +1,4 @@
-from Assets import AssetList
+from AssetList import AssetList
 
 a = AssetList()
 
