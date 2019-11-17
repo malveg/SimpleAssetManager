@@ -1,20 +1,24 @@
-import db_utils as db
+from .db_utils import *
 
 class AssetList(object):
     def __init__(self):
-        db.init_assets_table()
+        init_assets_table()
 
     def GetAllAssets(self):
-        return db.get_all_assets()
+        results = []
+        rows, columns = get_all_assets()
+        for row in rows:
+            results.append( dict(zip(columns,row)) )
+        return results
 
     def AddAsset(self,asset_name):
-        return db.create_asset(asset_name)
+        return create_asset(asset_name)
 
     def UpdateAsset(self,asset_id, field, value):
-        return db.update_asset(asset_id,field,value)
+        return update_asset(asset_id,field,value)
 
     def RemoveAsset(self,asset_id_list):
-        return db.remove_assets(asset_id_list)
+        return remove_assets(asset_id_list)
 
     def PrintAllAssets(self):
-        db.display_assets()
+        display_assets()

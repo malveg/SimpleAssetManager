@@ -51,13 +51,12 @@ def init_assets_table():
 
 
 
-
-
 def get_all_assets():
     sql = "SELECT id, name, date_added, last_modified FROM assets"
     con,cur = db_open_assets()
     cur.execute(sql)
-    return cur.fetchall()
+    columns = [column[0] for column in cur.description]
+    return cur.fetchall(),columns
 
 def create_asset(asset_name):
     try:
