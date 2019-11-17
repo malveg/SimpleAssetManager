@@ -13,7 +13,7 @@ def client():
 
 # pytest will inject the object returned by the "client" function
 # as an additional parameter.
-def test_list_images(client):
+def test_list_assets(client):
     response = client.simulate_get('/assets')
     result_doc = json.loads(response.content)
     result_doc = result_doc['assets'][0]['id']
