@@ -1,8 +1,9 @@
 # SimpleAssetManager
-An exploration in SQLite and Falcon to create a simple CRUD API
+An exploration in SQLite, SqlAlchemy and Falcon to create a simple CRUD API
 
 ## Setup
     $pip install falcon
+    $pip install sqlalchemy
 
 ### Install optional features
     $ pip install pytest

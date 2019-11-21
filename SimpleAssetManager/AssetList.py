@@ -1,15 +1,16 @@
-from .db_utils import *
+from .db_util_sa import *
 
 class AssetList(object):
-    def __init__(self):
-        init_assets_table()
+    # def __init__(self):
+    #     init_db()
 
     def GetAllAssets(self):
-        results = []
-        rows, columns = get_all_assets()
-        for row in rows:
-            results.append( dict(zip(columns,row)) )
-        return results
+        results = get_all_assets()
+        d = []
+        for r in results:
+            d.append(r.to_dict())
+        print(d)
+        return d
 
     def AddAsset(self,asset_name):
         return create_asset(asset_name)
@@ -21,4 +22,6 @@ class AssetList(object):
         return remove_assets(asset_id_list)
 
     def PrintAllAssets(self):
-        display_assets()
+        assets = get_all_assets()
+        for asset in assets:
+            print(asset)

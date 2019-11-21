@@ -1,6 +1,5 @@
 {
   "payload": {
-    "id": 3
-    ,"new_name": "Superman"
+    "ids_to_delete": [1,2]
   }
 }
